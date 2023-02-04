@@ -16,9 +16,11 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected  void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("user1").password(passwordEncoder().encode("Upassword1")).roles("USER")
+                .withUser("user1").password(passwordEncoder().encode("1234"))
+                .roles("USER")
                 .and()
-                .withUser("admin1").password(passwordEncoder().encode("Apassword1")).roles("ADMIN, USER");
+                .withUser("admin1").password(passwordEncoder().encode("1234"))
+                .roles("ADMIN", "USER");
     }
     @Override
     public void configure(HttpSecurity http) throws Exception {
